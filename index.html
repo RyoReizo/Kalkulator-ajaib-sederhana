@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+  </head>
+  <body>
+    <h1>Kalkulator Sederhana</h1>
+    <input type="text" id="input" style="width: 10%" />
+    <select id="operator" style="appearance: none; border: none;">
+      <option value="+"> + </option>
+      <option value="-"> - </option>
+      <option value="x"> * </option>
+      <option value="/"> / </option>
+    </select>
+
+    <input type="text" id="input2" style="width: 10%" /> <button>Hitung</button>
+    <h2></h2>
+  </body>
+  <script>
+    document.querySelector('button').addEventListener('click', () => {
+      const a = parseFloat(document.querySelector('#input').value);
+      const b = parseFloat(document.querySelector('#input2').value);
+      const operator = document.querySelector('#operator').value;
+      const keajaiban = 2
+      
+
+      let hasil;
+
+      if (isNaN(a) || isNaN(b)) {
+        document.querySelector('h2').innerHTML = 'Input harus berupa angka';
+      } else {
+        switch (operator) {
+          case '+':
+            hasil = a + b;
+            break;
+          case '-':
+            hasil = a - b;
+            break;
+          case '*':
+            hasil = a * b;
+            break;
+          case '/':
+            hasil = a / b;
+            break;
+          default:
+            hasil = 'Operator tidak valid';
+        }
+      }
+      document.querySelector('h2').innerHTML = hasil + keajaiban;
+    });
+  </script>
+</html>
